@@ -1,0 +1,28 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="centerBlock">
+                <img src="{% static 'some_html/image/picture.jpg' %}" width="1200" height="500">
+            </div>
+        </div>
+    </div>
+</div>
+{% for post in object_list %}
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+          <h5>{{post.date|date:"d-m-Y"}}</h5>
+        <a href="/news/{{post.id}}" class="btn btn-primary">Подробнее</a>
+      </div>
+    </div>
+{% endfor %}
+{% endblock %}
+
+
